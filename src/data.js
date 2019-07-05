@@ -21,6 +21,7 @@ const mostrar= () => {
   //return 'pokemon';
 
 };
+mostrar();
 
 // mostrar();
 window.mostrar = mostrar;

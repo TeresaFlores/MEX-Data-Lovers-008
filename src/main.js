@@ -1,14 +1,14 @@
 let mostarPokemon= POKEMON.pokemon;
-let information= document.getElementById("contenido");
+let information= document.getElementById("col-10 contenido-cards");
 //Mostrando tarjetas de pokemon
 mostarPokemon.forEach(function(element)  {
   //Diseño de tarjetas y contenido
-  let cards = `<div>
+  let cards = `<div class="tarjetas">
   <img src="${element.img}">
-  <p>No.${element.num}</p>
-  <p>${element.name}</p>
-  <p>${element.type}</p>
-  <p>Debilidad: ${element.weaknesses}</p>
+  <p id="num" >No. ${element.num}</p>
+  <p id= "nombre">${element.name}</p>
+  <p id= "tipo">${element.type}</p>
+  <p id="debilidad">Debilidad: ${element.weaknesses}</p>
 </div>`
 //Llamando variable para mostrar
   information.insertAdjacentHTML("beforeEnd", cards);
