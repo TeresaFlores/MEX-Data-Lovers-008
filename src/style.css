@@ -1,14 +1,70 @@
-*{
-    box-sizing: border-box;
-    margin:0;
+
+*{  
+    margin: 0;
     padding: 0;
-    font-family: 'DM Sans', sans-serif;
 }
-.container{
+body{
+    background: #e9ecf4;
+    color: black;
+}
+
+.contenedor{
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+} 
+
+.map img{
     width: 100%;
-    /*max-width: 1000px;*/
-    margin: 0px auto;
+    height: auto;
+    text-align: center;
 }
+.widget img{
+    width: 100%;
+    height: auto;
+    max-block-size: 500px;
+}
+.source3 img{
+    width: 100%;
+    height: auto; 
+}
+
+.contenido{
+    font-size: small;
+}
+
+.source1 video{
+    width: 100%
+}
+.source2 img{
+    width: 1000%;
+    height: auto; 
+}
+.source3 img{
+    width: 100%;
+    height: auto; 
+}
+
+/*ESTILO INDEX2.HTML*/
+.contenedor2{
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+} 
+.buscadores{
+    width: 100%
+}
+.tarjetas{
+    width: 100%
+}
+
+
+
+
 
 .row{
     margin: auto;
@@ -25,45 +81,8 @@
     clear:both; 
   }
 
-[class*="col-"]{
-    float: left;
-    min-height: 10px;
-    /*gutters*/
-    padding: 12px;
-}
-
-.col-1{width: 8.333333333333332%}
-.col-2{width: 16.666666666666664%}
-.col-3{width: 25%}
-.col-4{width: 33.33333333333333%}
-.col-5{width: 41.66666666666667%}
-.col-6{width: 50%}
-.col-7{width: 58.333333333333336%}
-.col-8{width: 66.66666666666666%}
-.col-9{width: 75%}
-.col-10{width: 83.33333333333334%}
-.col-11{width: 91.66666666666666%}
-.col-12{width: 100%}
-
-/*@media screen and (min-width:780px) and (max-width:1024px){
-    [class*="col-"]{
-        width: 100%;
-    }
-    .logo{
-        width: 100%;
-    }
-}
-
-
-@media screen and (min-width:450px) and (max-width:700px){
-    
-    .logo{
-        width: 50%;
-        
-    }
-}*/
 .tarjetas {
-    display: inline-block;
+    display: inline-block; 
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -106,4 +125,4 @@
     font-size: 100%;
     line-height: 170%;
 
-}
+}  
