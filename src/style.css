@@ -9,7 +9,7 @@ body{
 }
 
 .contenedor{
-    width: 80%;
+    width: 90%;
     max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
@@ -18,13 +18,13 @@ body{
 
 .map img{
     width: 100%;
-    height: auto;
-    text-align: center;
+    /* height: auto;
+    text-align: center; */
 }
 .widget img{
     width: 100%;
-    height: auto;
-    max-block-size: 500px;
+    /* height: auto; */
+    /* max-block-size: 500px; */
 }
 .source3 img{
     width: 100%;
