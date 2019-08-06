@@ -78,3 +78,61 @@ let arrayType = (showPokemon) => {
 //       tabla.setAttribute("border", "1");
 //     }
 
+//const numberPok = showPokemon.find(showPokemon => showPokemon.type === "Grass");
+//console.log(numberPok);
+
+
+// const sortData = (showPokemon) => {
+  
+//   if(orderPokemon.value == "A") { //Se utilza if para indicarle que cuan inicie con A aplique el orden A-Z
+//     console.log(showPokemon.sort((a,b) => {a.name.localeCompare(b.name)}));
+    
+//   } else if(orderPokemon.value == "Z") {
+//     console.log(showPokemon.sort((a,b) => {b.name.localeCompare(a.name)}));
+//   }
+  
+//   printCards(sortData);
+// }
+
+// orderPokemon.addEventListener("change", () => {
+//   sortData(showPokemon)
+// })
+
+
+// const changeOrder = (showPokemon) =>{
+//   const alfabeticA = showPokemon.sort((a,b) =>{
+//     return a.name.localeCompare(b.name);
+//   });
+//   console.log(alfabeticA);
+
+//   const alfabeticZ = showPokemon.sort ((a,b) => {
+//     return b.name.localeCompare(a.name);
+//   });
+//   console.log(alfabeticZ);
+// };
+// changeOrder(showPokemon);
+
+
+// const newPasto = showPokemon.filter(pokemon => pokemon.type.includes("Flying"));
+// console.log(newPasto)
+
+// const changeOrden = (showPokemon) =>{
+//   const numberMayor = showPokemon.reverse();
+//   console.log(numberMayor);
+// }
+// changeOrden(showPokemon);
+
+
+// //Funcion para filtrar por tipo
+//const pasto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Grass"));
+//console.log(pasto)
+// const insecto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Bug"));
+// //console.log(insecto)
+// const hielo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ice"));
+// //console.log(hielo)
+// const suelo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ground"));
+// //console.log(suelo)
+// const lucha= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fighting"));
+// //console.log(lucha)
+// const hada= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fairy"));
+// //console.log(hada)
