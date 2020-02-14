@@ -1,14 +1,25 @@
-window.data ={  
-  
-  show: (pokemon) => {
-  let cardPokemon= []; //variable vacia para crear array con nueva informacion   
-  
-  for(let i=0; i< pokemon.length;i++) { //bucle para buscar en la data informacion especifica
-    let number= pokemon[i].num;
-    let name= pokemon[i].name;
-    let image= pokemon[i].img;
-    let type= pokemon[i].type;
-    let debility= pokemon[i].weaknesses;     
+window.data ={
+
+  showPokemon: (pokemon) => {
+    let cardPokemon= []; //variable vacia para crear array con nueva informacion
+    
+    for(let i=0; i< pokemon.length;i++) { //bucle para buscar en la data informacion especifica
+      let number= pokemon[i].num;
+      let name= pokemon[i].name;
+      let image= pokemon[i].img;
+      let type= pokemon[i].type;
+      let debility= pokemon[i].weaknesses;
+
+      //hacer nuevo array y añadir cada elemento
+      cardPokemon.push(
+        {
+          number,
+          name,
+          image,
+          type,
+          debility
+        }
+      );
     
     //hacer nuevo array y añadir cada elemento
     cardPokemon.push(
@@ -27,6 +38,10 @@ window.data ={
 }
 };
 
+
+
+  // estadisticas : (data) => {
+  //   console.log(data)
 
 
 // // const showPokemon = window.data.show(POKEMON.pokemon);
@@ -72,9 +87,12 @@ window.data ={
 //     const lucha = showPokemon.filter(showPokemon => showPokemon.type.includes("Fighting"));
 //       const totalLucha= lucha.length;
 
+  // computeStats: (data) => {
+  //   // return 
+  //   // console.log(data);
 
-// const totales= () => {
+    // const typeCompute = data.filter(pokemon => pokemon.type.includes === selectType);
+    // console.log(typeCompute);
 
-// return totalHielo,totalFuego, totalVuelo  <= 20;
-// }
-// console.log (totales); 
+  
+

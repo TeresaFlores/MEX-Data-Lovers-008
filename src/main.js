@@ -1,6 +1,11 @@
 let information= document.getElementById("contenido-cards");
-const showPokemon = window.data.show(POKEMON.pokemon);//llamando data de archivo data.js
-const select = document.getElementById("select-type-pokemon");//llamando  a select
+const showPokemon = window.data.showPokemon(POKEMON.pokemon);//llamando data de archivo data.js
+const select = document.getElementById("select-type-pokemon");
+const orderPokemon = document.getElementById("select-order"); //llamando boton select de orden
+// const selectCalculate = document.getElementById("calculate-type");
+const numberPokemon = document.getElementById("number-pokemon");
+
+
 let printCards = (showPokemon) => {
  let string = "";
  showPokemon.forEach(element => { 
@@ -22,61 +27,60 @@ printCards(showPokemon);
 
 //Funcion para filtrar por tipo
 let arrayType = (showPokemon) => {
-  const newArray = showPokemon.filter(pokemon => pokemon.type[0] == select.value);  
-
-  if(newArray == "Todos") {
-    //printCards(showPokemon);
+  const newArray = window.data.filterData(showPokemon, select.value);
+  calculate();
+  // console.log(newArray.length)
+  if(select.value == "Todos") {
     printCards(showPokemon);
   }else{
     //console.log(newArray);
     printCards(newArray);  
   }
- }
-
- select.addEventListener("change", () => {
-  arrayType(showPokemon)
- });
+};
 
 
- 
+//orden A-Z
+let changeOrder = (showPokemon) => {
+  let selectOrder = orderPokemon.value;
+  const alfabetic = window.data.sortData(showPokemon,selectOrder);
+  printCards(alfabetic);
+};
+
+// const typeCompute = showPokemon.filter(showPokemon => showPokemon.type.includes(select.value));
+//   console.log(typeCompute);
+
+//Calculo de cuantos pokemones hay por cada tipo, aun no es pura
+
+const calculate = () => {
+  const typeCompute = window.data.filterData(showPokemon,select.value).length;
+  if(select.value == "Todos") {
+    numberPokemon.innerHTML = "Hay 151 pokémones en la Región Kanto";  
+  }else{
+    numberPokemon.innerHTML = "Hay " + typeCompute + " pokémones de este tipo en la Región Kanto";
+
+  }
+
+};
 
 
- 
-// //agregar una tabla a html
-//     function genera_tabla() {
-//       // Obtener la referencia del elemento body
-//       var body = document.getElementsByTagName("body")[0];
-     
-//       // Crea un elemento <table> y un elemento <tbody>
-//       var tabla   = document.createElement("table");
-//       var tblBody = document.createElement("tbody");
-     
-//       // Crea las celdas
-//       for (var i = 0; i < 17; i++) {
-//         // Crea las hileras de la tabla
-//         var hilera = document.createElement("tr");
-     
-//         for (var j = 0; j < 2; j++) {
-//           // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-//           // texto sea el contenido de <td>, ubica el elemento <td> al final
-//           // de la hilera de la tabla
-//           var celda = document.createElement("td");
-//           var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-//           celda.appendChild(textoCelda);
-//           hilera.appendChild(celda);
-//         }
-     
-//         // agrega la hilera al final de la tabla (al final del elemento tblbody)
-//         tblBody.appendChild(hilera);
-//       }
-     
-//       // posiciona el <tbody> debajo del elemento <table>
-//       tabla.appendChild(tblBody);
-//       // appends <table> into <body>
-//       body.appendChild(tabla);
-//       // modifica el atributo "border" de la tabla y lo fija a "2";
-//       tabla.setAttribute("border", "1");
-//     }
+
+select.addEventListener("change", () => {
+  arrayType(showPokemon);
+});
+orderPokemon.addEventListener("change", () => {
+  changeOrder(showPokemon);
+});
+
+//calculo de pokemones
+
+// const numberPok = (showPokemon) => {
+//   const totalType = type.length;
+//   const numberType = (showPokemon.filter(pokemon => pokemon.type === "Grass")).length;
+//   console.log(numberType);
+  
+//   console.log(totalType);
+// }
+// console.log(numberPok)
 
 //const numberPok = showPokemon.find(showPokemon => showPokemon.type === "Grass");
 //console.log(numberPok);
