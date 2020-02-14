@@ -1,30 +1,142 @@
-let mostarPokemon= POKEMON.pokemon;
-let information= document.getElementById("contenido");
-//Mostrando tarjetas de pokemon
-mostarPokemon.forEach(function(element)  {
-  //Diseño de tarjetas y contenido
-  let cards = `<div>
-  <img src="${element.img}">
-  <p>No.${element.num}</p>
-  <p>${element.name}</p>
-  <p>${element.type}</p>
-  <p>Debilidad: ${element.weaknesses}</p>
-</div>`
-//Llamando variable para mostrar
-  information.insertAdjacentHTML("beforeEnd", cards);
-});
+let information= document.getElementById("contenido-cards");
+const showPokemon = window.data.showPokemon(POKEMON.pokemon);//llamando data de archivo data.js
+const select = document.getElementById("select-type-pokemon");
+const orderPokemon = document.getElementById("select-order"); //llamando boton select de orden
+// const selectCalculate = document.getElementById("calculate-type");
+const numberPokemon = document.getElementById("number-pokemon");
+
+
+let printCards = (showPokemon) => {
+ let string = "";
+ showPokemon.forEach(element => { 
+
+   string += `<div class="tarjetas">
+   <img src="${element.image}">
+   <p id="num" >No. ${element.number}</p>
+   <p id= "nombre">${element.name}</p>
+   <p id= "tipo">${element.type}</p>
+   <p id="debilidad">Debilidad: ${element.debility}</p>
+ </div>`
+ })
+ information.innerHTML = string;
+//console.log(printCards);
+};
+printCards(showPokemon);
+
+
 
 //Funcion para filtrar por tipo
-const pasto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Grass"));
-//console.log(pasto)
-const insecto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Bug"));
-//console.log(insecto)
-const hielo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ice"));
-//console.log(hielo)
-const suelo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ground"));
-//console.log(suelo)
-const lucha= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fighting"));
-//console.log(lucha)
-const hada= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fairy"));
-console.log(hada)
+let arrayType = (showPokemon) => {
+  const newArray = window.data.filterData(showPokemon, select.value);
+  calculate();
+  // console.log(newArray.length)
+  if(select.value == "Todos") {
+    printCards(showPokemon);
+  }else{
+    //console.log(newArray);
+    printCards(newArray);  
+  }
+};
 
+
+//orden A-Z
+let changeOrder = (showPokemon) => {
+  let selectOrder = orderPokemon.value;
+  const alfabetic = window.data.sortData(showPokemon,selectOrder);
+  printCards(alfabetic);
+};
+
+// const typeCompute = showPokemon.filter(showPokemon => showPokemon.type.includes(select.value));
+//   console.log(typeCompute);
+
+//Calculo de cuantos pokemones hay por cada tipo, aun no es pura
+
+const calculate = () => {
+  const typeCompute = window.data.filterData(showPokemon,select.value).length;
+  if(select.value == "Todos") {
+    numberPokemon.innerHTML = "Hay 151 pokémones en la Región Kanto";  
+  }else{
+    numberPokemon.innerHTML = "Hay " + typeCompute + " pokémones de este tipo en la Región Kanto";
+
+  }
+
+};
+
+
+
+select.addEventListener("change", () => {
+  arrayType(showPokemon);
+});
+orderPokemon.addEventListener("change", () => {
+  changeOrder(showPokemon);
+});
+
+//calculo de pokemones
+
+// const numberPok = (showPokemon) => {
+//   const totalType = type.length;
+//   const numberType = (showPokemon.filter(pokemon => pokemon.type === "Grass")).length;
+//   console.log(numberType);
+  
+//   console.log(totalType);
+// }
+// console.log(numberPok)
+
+//const numberPok = showPokemon.find(showPokemon => showPokemon.type === "Grass");
+//console.log(numberPok);
+
+
+// const sortData = (showPokemon) => {
+  
+//   if(orderPokemon.value == "A") { //Se utilza if para indicarle que cuan inicie con A aplique el orden A-Z
+//     console.log(showPokemon.sort((a,b) => {a.name.localeCompare(b.name)}));
+    
+//   } else if(orderPokemon.value == "Z") {
+//     console.log(showPokemon.sort((a,b) => {b.name.localeCompare(a.name)}));
+//   }
+  
+//   printCards(sortData);
+// }
+
+// orderPokemon.addEventListener("change", () => {
+//   sortData(showPokemon)
+// })
+
+
+// const changeOrder = (showPokemon) =>{
+//   const alfabeticA = showPokemon.sort((a,b) =>{
+//     return a.name.localeCompare(b.name);
+//   });
+//   console.log(alfabeticA);
+
+//   const alfabeticZ = showPokemon.sort ((a,b) => {
+//     return b.name.localeCompare(a.name);
+//   });
+//   console.log(alfabeticZ);
+// };
+// changeOrder(showPokemon);
+
+
+// const newPasto = showPokemon.filter(pokemon => pokemon.type.includes("Flying"));
+// console.log(newPasto)
+
+// const changeOrden = (showPokemon) =>{
+//   const numberMayor = showPokemon.reverse();
+//   console.log(numberMayor);
+// }
+// changeOrden(showPokemon);
+
+
+// //Funcion para filtrar por tipo
+//const pasto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Grass"));
+//console.log(pasto)
+// const insecto= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Bug"));
+// //console.log(insecto)
+// const hielo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ice"));
+// //console.log(hielo)
+// const suelo= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Ground"));
+// //console.log(suelo)
+// const lucha= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fighting"));
+// //console.log(lucha)
+// const hada= mostarPokemon.filter(mostarPokemon => mostarPokemon.type.includes("Fairy"));
+// //console.log(hada)
